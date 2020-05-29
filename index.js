@@ -6,11 +6,12 @@ const config = require( './src/configure' );
 const snapshots = require( './src/wpsnapshots' );
 
 const help = function() {
-    let help = `
+    const help = `
 Usage: 10updocker COMMAND
 
 Commands:
   cache         Manages the build cache
+  config        Get a configuration of WP Local Docker
   configure     Set up a configuration for WP Local Docker
   create        Create a new docker environment
   delete        Deletes a specific docker environment
@@ -30,7 +31,7 @@ Run '10updocker COMMAND help' for more information on a command.
 };
 
 const version = function() {
-    var pjson = require('./package.json');
+    const pjson = require( './package.json' );
     console.log( 'WP Local Docker' );
     console.log( `Version ${pjson.version}` );
 };
@@ -60,6 +61,9 @@ const init = async function() {
     await commandUtils.checkForUpdates();
 
     switch ( command ) {
+        case 'config':
+            console.log( await config.get( commandUtils.getArg( 1 ) ) );
+            break;
         case 'configure':
             config.command();
             break;

@@ -55,6 +55,8 @@ services:
       - mysql
     environment:
       PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: password
     networks:
       - wplocaldocker
 networks:
