@@ -30,7 +30,7 @@ module.exports = function makeGitClone( spinner, chalk, { Clone, Cred }, { promp
 							}
 
 							if ( ( TYPE.USERPASS_PLAINTEXT & type ) === 0 ) {
-								// return default credetials to emulate an error condition
+								// return default credentials to emulate an error condition
 								// if the current authentication type is not USERPASS_PLAINTEXT
 								return Cred.defaultNew();
 							}

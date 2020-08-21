@@ -4,14 +4,14 @@ module.exports = function makeMoveRepository( chalk, spinner, { remove, move, re
 	const getDirectories = ( dir ) => {
 		const files = readdirSync( dir, { withFileTypes: true } );
 		const results = [];
-        
+
 		for ( const file of files ) {
 			if ( file.isDirectory() && file.name !== '.git' ) {
 				const fullpath = join( dir, file.name );
 				results.push( fullpath, ...getDirectories( fullpath ) );
 			}
 		}
-    
+
 		return results;
 	};
 
@@ -21,13 +21,13 @@ module.exports = function makeMoveRepository( chalk, spinner, { remove, move, re
 		spinner.start( `Moving cloned repository to ${ chalk.cyan( to ) }...` );
 		await remove( dest );
 		await move( from, dest );
-		spinner.succeed( `The cloned respository is moved to ${ chalk.cyan( to ) }...` );
+		spinner.succeed( `The cloned repository is moved to ${ chalk.cyan( to ) }...` );
 
 		chmodSync( dest, 0o755 );
 		getDirectories( dest ).forEach( ( dir ) => {
 			chmodSync( dir, 0o755 );
 		} );
 
-		spinner.succeed( 'Directory permisions have been updated to 0755...' );
+		spinner.succeed( 'Directory permissions have been updated to 0755...' );
 	};
 };

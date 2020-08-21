@@ -21,8 +21,13 @@ const validateBool = function( value ) {
 	return value;
 };
 
-/*
-Not foolproof, but should catch some more common issues with entering hostnames
+/**
+ * Parse hostname
+ *
+ * Note: Not foolproof, but should catch some more common issues with entering hostnames
+ *
+ * @param {string} value
+ * @returns {string}
  */
 const parseHostname = function( value ) {
 	// Get rid of any http(s):// prefix
@@ -39,10 +44,10 @@ const parseHostname = function( value ) {
 };
 
 /**
- * Check to make sure proxy URLs have a protcol attached
+ * Check to make sure proxy URLs have a protocol attached
  *
- * @param  string value 	Proxy URL to check against
- * @return string       	The validated/modified proxy URL
+ * @param  {string} value 	Proxy URL to check against
+ * @return {string}       	The validated/modified proxy URL
  */
 const parseProxyUrl = function( value ) {
 	const re = /^https?:\/\//i;

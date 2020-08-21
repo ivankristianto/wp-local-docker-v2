@@ -150,7 +150,7 @@ async function configure( configuration ) {
 function createProxyConfig( proxy, curConfig ) {
 	const proxyMarkup = [];
 
-	// the number of spaces in the proxy markpu is intended
+	// the number of spaces in the proxy markup is intended
 	proxyMarkup.push( 'location @production {' );
 	proxyMarkup.push( '        resolver 8.8.8.8;' );
 	proxyMarkup.push( `        proxy_pass ${ proxy }/$uri;` );

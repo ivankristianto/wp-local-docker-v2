@@ -8,14 +8,14 @@ All notable changes to this project will be documented in this file, per [the Ke
 ### Added
 - Adds `clone` command to clone git repositories and create new environments for it.
 - Adds `completion <shell>` command to display instructions how to activate autocomplete for a specific shell. Supported shells : `bash` and `zsh`.
-- Adds the ability to use project specific configuration files. It is read during clonning process and allows to define a configuration required for the project and allows to omit setup questions. If the configuration is not sufficient (for example, it misses php version), then appropriate questions will be asked fill gaps.
+- Adds the ability to use project specific configuration files. It is read during cloning process and allows to define a configuration required for the project and allows to omit setup questions. If the configuration is not sufficient (for example, it misses php version), then appropriate questions will be asked fill gaps.
 - Adds `init` command to generate project configuration files.
 - Adds the ability to update a docker-compose config for an environment if the configuration file contains `dockerCompose` callback function.
 - Adds global `--env=<environment>` option to specify an environment to use and to skip environment selection prompt.
 - Adds global `--verbose` option to switch between quite and verbose output modes.
 - Adds `--tail=<number>` argument to the `logs` command to limit the number of lines to show from the end of the logs for each container. It works the same way as it works for `docker-compose logs` itself and has `all` as default.
-- Adds `--pull` option to the `start` command to automatically pull latest images before an environment starts.
-- Adds `<cmd>` positional argument to the `shell` command to override command to run in the container. By default it is still `bash` but now it is possible to run different single commands without launching bash first.
+- Adds `--pull` option to the `start` command to automatically pull the latest images before an environment starts.
+- Adds `<cmd>` positional argument to the `shell` command to override command to run in the container. By default, it is still `bash` but now it is possible to run different single commands without launching bash first.
 - Adds `list` and `ls` commands to list all the environments and meta information.
 - Adds engines information to the package.json to strictly denote that Node v12+ is required.
 - Adds `cert install` command to install a new local CA in the system trust store.
@@ -31,7 +31,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Documentation updates (props [@jeffpaul](https://github.com/jeffpaul) via [#58](https://github.com/10up/wp-local-docker-v2/pull/58))
 
 ### Fixed
-- Fixes issues with hosts manipulations during environment creations and deletions when node.js executable is not in the root's PATH.
+- Fix issues with hosts manipulations during environment creations and deletions when node.js executable is not in the root's PATH.
 - Issue with project directory recognition (props [@eugene-manuilov](https://github.com/eugene-manuilov), [@jamesmorrison](https://github.com/jamesmorrison) via [#110](https://github.com/10up/wp-local-docker-v2/pull/110))
 
 ### Security
